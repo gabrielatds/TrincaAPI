@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ChurrasAPI</name>
+    </assembly>
+    <members>
+        <member name="M:ChurrasAPI.Controllers.ChurrascosController.FindAll">
+            <summary>
+            Retorna lista de todos os churrascos cadastrados
+            </summary>
+            <returns>Retorna lista de todos churrascos</returns>
+            <response code="200">Sucesso</response>
+            <response code="500">Erro interno</response>
+        </member>
+        <member name="M:ChurrasAPI.Controllers.ChurrascosController.FindDesenvolvedor(System.Nullable{System.Int32})">
+            <summary>
+            Retorna um churrasco pelo ID
+            </summary>
+            <returns>Retorna um churrasco</returns>
+            <response code="200">Sucesso</response>
+            <response code="500">Erro interno</response>
+        </member>
+        <member name="M:ChurrasAPI.Controllers.ChurrascosController.Create(ChurrasAPI.Models.Churrasco)">
+            <summary>
+            Insere um novo churrasco no banco de dados
+            </summary>
+            <response code="201">Sucesso</response>
+            <response code="500">Erro interno</response>
+        </member>
+        <member name="M:ChurrasAPI.Controllers.ChurrascosController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            Atualiza os dados de um churrasco no banco de dados
+            </summary>
+            <returns>Atualiza um churrasco</returns>
+            <response code="204"> Sucesso</response>
+            <response code="500">Erro interno</response>
+        </member>
+        <member name="M:ChurrasAPI.Controllers.ChurrascosController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            Remove um churrasco do banco de dados
+            </summary>
+            <response code="204">Sucesso</response>
+            <response code="500">Erro interno</response>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IChurrascoService.FindAllAsync">
+            <summary>
+            Retorna todos os churrascos do banco de dados ordenados pela data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IChurrascoService.FindByIdAsync(System.Int32)">
+            <summary>
+            Retorna um churrasco pelo seu ID no banco de dados
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IChurrascoService.UpdateAsync(ChurrasAPI.Models.Churrasco)">
+            <summary>
+            Atualiza um churrasco no banco de dados
+            </summary>
+            <param name="churrasco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IChurrascoService.InsertAsync(ChurrasAPI.Models.Churrasco)">
+            <summary>
+            Insere um novo churrasco no banco de dados
+            </summary>
+            <param name="churrasco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IChurrascoService.RemoveAsync(System.Int32)">
+            <summary>
+            Remove um churrasco do banco de dados
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Services.ChurrascoService.RemoveAsync(System.Int32)">
+            <summary>
+            Remove um churrasco do banco de dados
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
