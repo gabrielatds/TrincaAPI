@@ -24,7 +24,7 @@ namespace ChurrasAPI.Controllers
         /// <response code="200">Sucesso</response>
         /// <response code="500">Erro interno</response>
 
-        [HttpGet()]
+        [HttpGet("getAll")]
         public async Task<IActionResult> FindAll()
         {
             try
@@ -91,12 +91,5 @@ namespace ChurrasAPI.Controllers
             await _churrascoService.RemoveAsync(id.Value);
             return Ok("Churrasco removido");
         }
-
-        /// <summary>
-        /// Adiciona um participante ao churrasco
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="participantePost"></param>
-        /// <returns></returns>
     }
 }

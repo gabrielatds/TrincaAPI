@@ -21,7 +21,7 @@ namespace ChurrasAPI.Services
 
         public async Task<List<Churrasco>> FindAllAsync()
         {
-            return await _context.Churrascos.Include(x => x.Participantes).OrderBy(x => x.Data).ToListAsync();
+            return await _context.Churrascos.OrderBy(x => x.Data).ToListAsync();
         }
 
         public async Task<Churrasco> FindByIdAsync(int id)

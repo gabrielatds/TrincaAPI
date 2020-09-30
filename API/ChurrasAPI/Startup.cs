@@ -43,7 +43,7 @@ namespace ChurrasAPI
                 {
                     Version = "v1",
                     Title = "Lançamento de Horas API",
-                    Description = "Desafio Back-end Luby Software",
+                    Description = "Desafio Back-end Trinca",
                     Contact = new OpenApiContact
                     {
                         Name = "Gabriel Alves",

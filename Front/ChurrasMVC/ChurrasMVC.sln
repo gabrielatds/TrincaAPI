@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChurrasMVC", "ChurrasMVC.csproj", "{99765C7B-5359-46CA-A095-6C3F927F6057}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99765C7B-5359-46CA-A095-6C3F927F6057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99765C7B-5359-46CA-A095-6C3F927F6057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99765C7B-5359-46CA-A095-6C3F927F6057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99765C7B-5359-46CA-A095-6C3F927F6057}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F368BC1C-DA5C-4074-8A44-802201873822}
+	EndGlobalSection
+EndGlobal
