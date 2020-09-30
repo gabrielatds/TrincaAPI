@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using ChurrasAPI.Interfaces;
+using ChurrasAPI.Dtos;
 
 namespace ChurrasAPI.Services
 {
@@ -20,7 +21,7 @@ namespace ChurrasAPI.Services
 
         public async Task<List<Churrasco>> FindAllAsync()
         {
-            return await _context.Churrascos.OrderBy(x => x.Data).ToListAsync();
+            return await _context.Churrascos.Include(x => x.Participantes).OrderBy(x => x.Data).ToListAsync();
         }
 
         public async Task<Churrasco> FindByIdAsync(int id)
@@ -28,13 +29,13 @@ namespace ChurrasAPI.Services
             if (id <= 0)
                 throw new ArgumentException("ID inválido");
 
-            return await _context.Churrascos.FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Churrascos.Include(x => x.Participantes).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task UpdateAsync(Churrasco churrasco)
         {
             if (churrasco == null)
-                throw new ArgumentException("Churrasco inválido");
+                throw new ArgumentNullException("Churrasco inválido");
 
             try
             {
@@ -47,13 +48,21 @@ namespace ChurrasAPI.Services
             }
         }
 
-        public async Task InsertAsync(Churrasco churrasco)
+        public async Task InsertAsync(ChurrascoPost churrascoPost)
         {
-            if (churrasco == null)
+            if (churrascoPost == null || churrascoPost.Data < DateTime.Today)
                 throw new ArgumentException("Churrasco inválido");
 
             try
             {
+                var churrasco = new Churrasco
+                {
+                    Data = churrascoPost.Data,
+                    Descricao = churrascoPost.Descricao,
+                    ObsAdicional = churrascoPost.ObsAdicional,
+                    ValorComBebida = churrascoPost.ValorComBebida,
+                    ValorSemBebida = churrascoPost.ValorSemBebida,
+                };
                 _context.Add(churrasco);
                 await _context.SaveChangesAsync();
             }
@@ -62,12 +71,6 @@ namespace ChurrasAPI.Services
                 throw new DBConcurrencyException(e.Message);
             }
         }
-
-        /// <summary>
-        /// Remove um churrasco do banco de dados
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public async Task RemoveAsync(int id)
         {
             if (id <= 0)
@@ -84,8 +87,6 @@ namespace ChurrasAPI.Services
             {
                 throw new DBConcurrencyException(e.Message);
             }
-        }
-
+        }         
     }
-
 }

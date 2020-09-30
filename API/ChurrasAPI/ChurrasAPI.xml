@@ -12,7 +12,7 @@
             <response code="200">Sucesso</response>
             <response code="500">Erro interno</response>
         </member>
-        <member name="M:ChurrasAPI.Controllers.ChurrascosController.FindDesenvolvedor(System.Nullable{System.Int32})">
+        <member name="M:ChurrasAPI.Controllers.ChurrascosController.FindChurrasco(System.Nullable{System.Int32})">
             <summary>
             Retorna um churrasco pelo ID
             </summary>
@@ -20,14 +20,14 @@
             <response code="200">Sucesso</response>
             <response code="500">Erro interno</response>
         </member>
-        <member name="M:ChurrasAPI.Controllers.ChurrascosController.Create(ChurrasAPI.Models.Churrasco)">
+        <member name="M:ChurrasAPI.Controllers.ChurrascosController.Create(ChurrasAPI.Dtos.ChurrascoPost)">
             <summary>
             Insere um novo churrasco no banco de dados
             </summary>
             <response code="201">Sucesso</response>
             <response code="500">Erro interno</response>
         </member>
-        <member name="M:ChurrasAPI.Controllers.ChurrascosController.Edit(System.Nullable{System.Int32})">
+        <member name="M:ChurrasAPI.Controllers.ChurrascosController.Details(System.Nullable{System.Int32})">
             <summary>
             Atualiza os dados de um churrasco no banco de dados
             </summary>
@@ -41,6 +41,13 @@
             </summary>
             <response code="204">Sucesso</response>
             <response code="500">Erro interno</response>
+        </member>
+        <member name="M:ChurrasAPI.Controllers.ParticipantesController.RemoverParticipante(System.Nullable{System.Int32})">
+            <summary>
+            Remove um participante pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="M:ChurrasAPI.Interfaces.IChurrascoService.FindAllAsync">
             <summary>
@@ -62,7 +69,7 @@
             <param name="churrasco"></param>
             <returns></returns>
         </member>
-        <member name="M:ChurrasAPI.Interfaces.IChurrascoService.InsertAsync(ChurrasAPI.Models.Churrasco)">
+        <member name="M:ChurrasAPI.Interfaces.IChurrascoService.InsertAsync(ChurrasAPI.Dtos.ChurrascoPost)">
             <summary>
             Insere um novo churrasco no banco de dados
             </summary>
@@ -76,11 +83,38 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:ChurrasAPI.Services.ChurrascoService.RemoveAsync(System.Int32)">
+        <member name="M:ChurrasAPI.Interfaces.IParticipanteService.FindAllAsync">
             <summary>
-            Remove um churrasco do banco de dados
+            Retorna todos os participantes do banco de dados ordenados pelo nome
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IParticipanteService.FindByIdAsync(System.Int32)">
+            <summary>
+            Retorna um participantes pelo seu ID no banco de dados
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IParticipanteService.InsertAsync(ChurrasAPI.Models.Participante)">
+            <summary>
+            Insere um novo participante no banco de dados
+            </summary>
+            <param name="churrasco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IParticipanteService.RemoveAsync(System.Int32)">
+            <summary>
+            Remove um participante do banco de dados
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChurrasAPI.Interfaces.IParticipanteService.UpdateAsync(System.Int32,ChurrasAPI.Dtos.ParticipantePago)">
+            <summary>
+            Atualiza um participante no banco de dados
+            </summary>
+            <param name="churrasco"></param>
             <returns></returns>
         </member>
     </members>

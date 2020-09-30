@@ -60,6 +60,7 @@ namespace ChurrasAPI
 
             services.AddScoped<SeedingService>();
             services.AddScoped<IChurrascoService, ChurrascoService>();
+            services.AddScoped<IParticipanteService, ParticipanteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

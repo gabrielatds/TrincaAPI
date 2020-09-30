@@ -1,19 +1,18 @@
-﻿using ChurrasAPI.Interfaces;
+﻿using ChurrasAPI.Dtos;
+using ChurrasAPI.Interfaces;
 using ChurrasAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ChurrasAPI.Controllers
 {
-    [Route("churrascos")]
-    public class ChurrascosController: Controller
+
+    public class ChurrascosController : Controller
     {
         private readonly IChurrascoService _churrascoService;
-
-        public ChurrascosController(IChurrascoService churrascoService)
+        public ChurrascosController(IChurrascoService churrascoService, IParticipanteService participanteService)
         {
             _churrascoService = churrascoService;
         }
@@ -47,7 +46,7 @@ namespace ChurrasAPI.Controllers
         /// <response code="500">Erro interno</response>
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> FindDesenvolvedor(int? id)
+        public async Task<IActionResult> FindChurrasco(int? id)
         {
             var churrasco = await _churrascoService.FindByIdAsync(id.Value);
             return Ok(churrasco);
@@ -60,9 +59,9 @@ namespace ChurrasAPI.Controllers
         /// <response code="500">Erro interno</response>
 
         [HttpPost("novo")]
-        public async Task<IActionResult> Create(Churrasco churrasco)
+        public async Task<IActionResult> Create(ChurrascoPost churrascoPost)
         {
-            await _churrascoService.InsertAsync(churrasco);
+            await _churrascoService.InsertAsync(churrascoPost);
             return Ok("Churrasco Criado");
         }
 
@@ -73,11 +72,10 @@ namespace ChurrasAPI.Controllers
         /// <response code="204"> Sucesso</response>
         /// <response code="500">Erro interno</response>
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Edit(int? id)
+        [HttpGet("details/{id}")]
+        public async Task<IActionResult> Details(int? id)
         {
             var churrasco = await _churrascoService.FindByIdAsync(id.Value);
-            await _churrascoService.UpdateAsync(churrasco);
             return Ok(churrasco);
         }
 
@@ -93,5 +91,12 @@ namespace ChurrasAPI.Controllers
             await _churrascoService.RemoveAsync(id.Value);
             return Ok("Churrasco removido");
         }
+
+        /// <summary>
+        /// Adiciona um participante ao churrasco
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="participantePost"></param>
+        /// <returns></returns>
     }
 }

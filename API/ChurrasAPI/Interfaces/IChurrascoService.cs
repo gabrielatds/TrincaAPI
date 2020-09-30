@@ -1,4 +1,5 @@
-﻿using ChurrasAPI.Models;
+﻿using ChurrasAPI.Dtos;
+using ChurrasAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace ChurrasAPI.Interfaces
         /// </summary>
         /// <param name="churrasco"></param>
         /// <returns></returns>
-        Task InsertAsync(Churrasco churrasco);
+        Task InsertAsync(ChurrascoPost churrascoPost);
 
         /// <summary>
         /// Remove um churrasco do banco de dados
@@ -41,5 +42,6 @@ namespace ChurrasAPI.Interfaces
         /// <param name="id"></param>
         /// <returns></returns>
         Task RemoveAsync(int id);
+
     }
 }
