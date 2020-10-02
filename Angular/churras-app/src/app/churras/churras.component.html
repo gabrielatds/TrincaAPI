@@ -1,16 +1,20 @@
-<div *ngFor="let churrasco of churrascos">
-  Id: {{churrasco.id}}
-  <br>
-  Data: {{churrasco.data}}
-  <br>
-  Descrição: {{churrasco.descricao}}
-  <br>
-  Observação Adicional: {{churrasco.obsAdicional}}
-  <br>
-  Valor com Bebida: {{churrasco.valorComBebida}}
-  <br>
-  Valor sem Bebida: {{churrasco.valorSemBebida}}
-  <br>
-  Participantes: {{churrasco.participantes}}
-  <hr>
+<br>
+<div class="container col-md-4 d-inline-block" *ngFor="let churrasco of churrascos">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-small" style="font-size: 1.2rem;">{{churrasco.descricao}}</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>{{churrasco.data}}</li>
+          <li>{{churrasco.obsAdicional}}</li>
+          <li>Valor com Bebida: {{churrasco.valorComBebida}}</li>
+          <li>Valor sem Bebida: {{churrasco.valorSemBebida}}</li>
+        </ul>
+        <button type="button" class="btn k btn-outline-primary">Detalhes</button>
+      </div>
+    </div>
+  </div>
 </div>
+
