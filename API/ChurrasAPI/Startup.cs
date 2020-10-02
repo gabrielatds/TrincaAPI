@@ -35,6 +35,7 @@ namespace ChurrasAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+            services.AddCors();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -42,8 +43,8 @@ namespace ChurrasAPI
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Lançamento de Horas API",
-                    Description = "Desafio Back-end Trinca",
+                    Title = "Gerenciamento de churrascos API",
+                    Description = "Gerencie seus churrascos",
                     Contact = new OpenApiContact
                     {
                         Name = "Gabriel Alves",
@@ -83,6 +84,7 @@ namespace ChurrasAPI
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
         }
     }
